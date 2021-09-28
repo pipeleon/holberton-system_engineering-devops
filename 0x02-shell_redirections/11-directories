@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -la .vim | grep -c ^d
+find <directory> -type d | wc -l
