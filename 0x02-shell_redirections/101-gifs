@@ -1,0 +1,2 @@
+#!/bin/bash
+find . *.git -printf '%f\n' | sort
