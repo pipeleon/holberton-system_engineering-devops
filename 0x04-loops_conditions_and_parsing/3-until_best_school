@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+
+i=0
+n=10
+until [ $i -eq $n ]; do
+    array[i]='Best School'
+    echo "${array[$i]}"
+    ((i++))
+done

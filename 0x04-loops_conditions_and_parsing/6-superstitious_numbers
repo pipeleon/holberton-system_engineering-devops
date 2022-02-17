@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+
+i=1
+n=21
+china=4
+japan=9
+italy=17
+while (( i < n )); do
+    if [[ "$i" -eq "$china" ]]; then
+        echo "bad luck from China"
+    elif [[ "$i" -eq "$japan" ]]; then
+        echo "bad luck from Japan"
+    elif [[ "$i" -eq "$italy" ]]; then
+        echo "bad luck from Italy"
+    else
+        echo "$i"
+    fi
+    ((i++))
+done
