@@ -8,12 +8,16 @@ japan=9
 italy=17
 while (( i < n )); do
     echo "$i"
-    if [[ "$i" -eq "$china" ]]; then
-        echo "bad luck from China"
-    elif [[ "$i" -eq "$japan" ]]; then
-        echo "bad luck from Japan"
-    elif [[ "$i" -eq "$italy" ]]; then
-        echo "bad luck from Italy"
-    fi
+    case $i in
+        $china)
+            echo "bad luck from China"
+            ;;
+        $japan)
+            echo "bad luck from Japan"
+            ;;
+        $italy)
+            echo "bad luck from Italy"
+            ;;            
+    esac
     ((i++))
 done
