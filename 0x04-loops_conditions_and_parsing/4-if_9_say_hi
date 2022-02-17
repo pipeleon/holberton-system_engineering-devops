@@ -5,11 +5,10 @@ i=0
 n=10
 nine=8
 while (( i < n )); do
+    array[i]='Best School'
+    echo "${array[$i]}"
     if [[ "$i" -eq "$nine" ]]; then
         echo "Hi"
-    else
-        array[i]='Best School'
-        echo "${array[$i]}"
     fi
     ((i++))
 done
