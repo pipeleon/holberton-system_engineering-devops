@@ -5,7 +5,7 @@ echo $$ > /var/run/myscript.pid
 _term1() { 
   echo "I hate the kill command" 
 }
-trap _term1 SIGTERM
+trap _term1 _term3 SIGTERM
 _term2() { 
   echo "Y U no love me?!" 
 }
