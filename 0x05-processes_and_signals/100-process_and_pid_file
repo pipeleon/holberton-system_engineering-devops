@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # This script does alot of things
-chown felipeleon:felipeleon /var/run
 sudo touch /var/run/myscript.pid
 echo $$ > /var/run/myscript.pid
 _term1() { 
