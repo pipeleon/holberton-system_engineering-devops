@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script does alot of things
+chown felipeleon:felipeleon /var/run
+sudo touch /var/run/myscript.pid
+echo $$ > /var/run/myscript.pid
+_term1() { 
+  echo "I hate the kill command" 
+}
+trap _term1 SIGTERM
+_term2() { 
+  echo "Y U no love me?!" 
+}
+trap _term2 SIGINT
+_term3() { 
+  rm /var/run/myscript.pid
+}
+trap _term3 SIGQUIT
+while : 
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
