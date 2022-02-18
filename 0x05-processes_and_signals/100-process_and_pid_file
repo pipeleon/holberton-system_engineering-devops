@@ -3,9 +3,10 @@
 sudo touch /var/run/myscript.pid
 echo $$ > /var/run/myscript.pid
 _term1() { 
-  echo "I hate the kill command" 
+  echo "I hate the kill command"
+  rm /var/run/myscript.pid
 }
-trap _term1 _term3 SIGTERM
+trap _term1 SIGTERM
 _term2() { 
   echo "Y U no love me?!" 
 }
