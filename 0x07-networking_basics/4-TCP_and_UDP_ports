@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# shows the PID and name of the program to which each socket belongs
 netstat -pl
