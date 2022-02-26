@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# displays all active IPv4 IPs on the machine it’s executed on
+cp /etc/hosts ~/hosts.new
+echo -e "127.0.0.2\tlocalhost" > ~/hosts.new
+echo -e "8.8.8.8\tfacebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
