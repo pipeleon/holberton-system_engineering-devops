@@ -1,5 +1,6 @@
-#Manifest in Puppet to install puppet-lint
+#Manifest in Puppet to stop killmenow
 
-exec { 'pkill bash':
-  command => 'pkill bash'
+exec { 'killing':
+  command => 'pkill killmenow',
+  provider => 'shell'
 }
