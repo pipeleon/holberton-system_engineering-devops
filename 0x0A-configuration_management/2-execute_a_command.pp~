@@ -1,0 +1,6 @@
+#Manifest in Puppet to install puppet-lint
+
+exec { 'remove puppet-lint':
+  command => 'sudo apt remove puppet-lint'
+}
+
