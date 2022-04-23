@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that start Apache2 and run thw web server
+
+sudo service apache2 start
