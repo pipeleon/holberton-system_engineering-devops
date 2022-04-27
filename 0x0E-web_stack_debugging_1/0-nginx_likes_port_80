@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that configurates port 80 on Nginx
+cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
