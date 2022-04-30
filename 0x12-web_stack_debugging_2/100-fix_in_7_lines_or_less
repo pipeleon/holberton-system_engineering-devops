@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash script to run Nginx process as user Nginx in port 8080
+pkill apache2
+sudo sed -i "s/80/8080/" /etc/nginx/sites-available/default
+sudo chmod 777 /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
