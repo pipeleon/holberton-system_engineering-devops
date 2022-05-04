@@ -1,0 +1,4 @@
+sudo -u root ufw allow 22
+sudo -u root ufw allow 443
+sudo -u root ufw allow 80
+sudo -u root ufw enable
