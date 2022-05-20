@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     dict_user = {}
 
-    for i in range(10):
+    for i in range(1, 11):
         NAME = todo_name[i].get('name')
         list_task = []
         for j in todo_list:
