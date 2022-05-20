@@ -26,5 +26,6 @@ if __name__ == "__main__":
             new.append(str(i.get('completed')))
             new.append(i.get('title'))
             all_task.append(new)
-        w = csv.writer(f, quotechar="\"")
+        w = csv.writer(f, delimiter=',', quotechar='"',
+                                   quoting=csv.QUOTE_ALL, lineterminator='\n')
         w.writerows(all_task)
