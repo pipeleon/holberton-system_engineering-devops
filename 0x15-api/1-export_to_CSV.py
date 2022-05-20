@@ -21,11 +21,10 @@ if __name__ == "__main__":
         all_task = []
         for i in todo_list:
             new = []
-            new.append(str(sys.argv[1]))
+            new.append(sys.argv[1])
             new.append(NAME)
-            new.append(str(i.get('completed')))
+            new.append(i.get('completed'))
             new.append(i.get('title'))
             all_task.append(new)
-        w = csv.writer(f, delimiter=',', quotechar='"',
-                                   quoting=csv.QUOTE_ALL, lineterminator='\n')
+        w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL, lineterminator='\n')
         w.writerows(all_task)
