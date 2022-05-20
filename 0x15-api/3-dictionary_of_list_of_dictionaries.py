@@ -26,7 +26,7 @@ if __name__ == "__main__":
                 new['task'] = j.get('title')
                 new['completed'] = j.get('completed')
                 list_task.append(new)
-        dict_user[str(i)] = list_task
+        dict_user[i] = list_task
 
     with open("todo_all_employees.json", "w", encoding="utf-8") as f:
         json.dump(dict_user, f)
