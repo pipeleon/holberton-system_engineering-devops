@@ -3,7 +3,7 @@
 import requests
 
 
-def number_of_subscribers(subreddit):
+def top_ten(subreddit):
     """Function to get the subscribe number of a subreddit as parameter"""
     CLIENT_ID = "VKOXXLxu-8o42FtwhIuDIg"
     CLIENT_SECRET = "uyWfF2GV5aKDdQ7hkHfFBT85d4wCAQ"
@@ -19,17 +19,25 @@ def number_of_subscribers(subreddit):
     if response.status_code == 200:
         token_id = response.json()['access_token']
     else:
-        return number_of_subscribers(subreddit)
+        top_ten(subreddit)
+        return
 
     headers_get = {
         'Authorization': 'Bearer ' + token_id
     }
 
-    url = "https://oauth.reddit.com/r/{}/about".format(subreddit)
+    paramsA = {
+        'limit': 10
+    }
 
-    r = requests.get(url, headers=headers_get)
+    url = "https://oauth.reddit.com/r/{}/hot".format(subreddit)
+
+    r = requests.get(url, headers=headers_get, params=paramsA)
 
     if r.status_code == 200:
-        return r.json().get('data').get('subscribers')
+        list_a = r.json().get('data').get('children')
+
+        for i in range(10):
+            print((list_a[i]).get('data').get('title'))
     else:
-        return 0
+        print("None")
