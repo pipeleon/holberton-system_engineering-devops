@@ -3,7 +3,7 @@
 import requests
 
 
-def top_ten(subreddit):
+def recurse(subreddit, hot_list=[]):
     """Function to get the subscribe number of a subreddit as parameter"""
     CLIENT_ID = "VKOXXLxu-8o42FtwhIuDIg"
     CLIENT_SECRET = "uyWfF2GV5aKDdQ7hkHfFBT85d4wCAQ"
@@ -18,24 +18,40 @@ def top_ten(subreddit):
     response = requests.post(TOKEN_ACCESS_ENDPOINT, data=post_data, auth=c_a)
     if response.status_code == 200:
         token_id = response.json()['access_token']
+    else:
+        return recurse(subreddit, hot_list)
 
     headers_get = {
         'Authorization': 'Bearer ' + token_id
     }
 
-    paramsA = {
-        'after': 't3_uttxcf',
-        'limit': 10        
-    }
+    if len(hot_list) == 0:
+        paramsA = {
+            'limit': 100
+        }
+    else:
+        paramsA = {
+            'after': hot_list[-1].get('data').get('name'),
+            'limit': 100
+        }
 
     url = "https://oauth.reddit.com/r/{}/hot".format(subreddit)
 
     r = requests.get(url, headers=headers_get, params=paramsA)
 
+    if not r.status_code == 200:
+        return recurse(subreddit, hot_list)
+
     list_a = r.json().get('data').get('children')
 
-    print(len(list_a))
-    print((list_a[0]).get('data').keys())
-    for i in range(10):
-        print((list_a[i]).get('data').get('title'))
-        print((list_a[i]).get('data').get('name'))
+    if len(list_a) == 100:
+        for i in list_a:
+            hot_list.append(i)
+        return recurse(subreddit, hot_list)
+    else:
+        for i in list_a:
+            hot_list.append(i)
+        new = []
+        for i in hot_list:
+            new.append(i.get('data').get('title'))
+        return new
